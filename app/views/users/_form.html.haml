@@ -1,0 +1,36 @@
+= render :partial => "share/messages", :locals => {:type => :alert, :message => @user.errors.full_messages}
+.row
+  .col-md-8
+    = form_for @user, :url => create_user_users_path, :method => :post, :html => {:class => 'form-horizontal'} do |f|
+      .fields-group
+        .form-group
+          = f.label :email, :class => 'control-label mandatory-field'
+          = f.text_field :email, :class => 'form-control'
+        .form-group
+          = f.label :full_name, :class => 'control-label mandatory-field'
+          = f.text_field :full_name, :class => 'form-control'
+        .form-group
+          = f.label :father, "Father's Name", :class => 'control-label'
+          = f.text_field :father, :class => 'form-control'
+        .form-group
+          = f.label :mother, "Mother's Name", :class => 'control-label'
+          = f.text_field :mother, :class => 'form-control'
+        .form-group
+          = f.label :mobile_number, :class => 'control-label'
+          = f.text_field :mobile_number, :class => 'form-control'
+        .form-group
+          = f.label :address, :class => 'control-label'
+          = f.text_area :address, :rows => "2", :class => 'form-control'
+        .form-group
+          = f.label :pincode, :class => 'control-label'
+          = f.text_field :pincode, :class => 'form-control'
+        .form-group
+          = f.label :nationality, :class => 'control-label'
+          = f.text_field :nationality, :class => 'form-control'
+        .form-group
+          = f.label :contact_address, "Father's Name", :class => 'control-label'
+          = f.text_field :contact_address, :class => 'form-control'
+    
+      .form-group
+        =link_to 'Cancel', users_path, :class=> "btn"
+        = f.button @user.id.nil? ? "Create User" : "Save User", :class => 'btn btn-primary'
